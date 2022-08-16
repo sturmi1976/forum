@@ -1,0 +1,5 @@
+Hallo {username},
+
+vielen Dank für deine Registrierung in unserem TYPO3 Forum.
+Um die Registrierung abzuschließen, musst du folgenden Link aufrufen:
+{link}

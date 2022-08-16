@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:forum/Resources/Private/Language/locallang.xlf" date="2022-07-14T10:08:41Z" product-name="forum">
+		<header/>
+		<body>
+			<trans-unit id="tx_forum_domain_model_category" resname="tx_forum_domain_model_category">
+				<target>Kategorie</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_category.category" resname="tx_forum_domain_model_category.category">
+				<target>Kategorie</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum" resname="tx_forum_domain_model_forum">
+				<target>Forum</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.title" resname="tx_forum_domain_model_forum.title">
+				<target>Das deutschsprachige Forum für TYPO3 Entwickler</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.forum" resname="tx_forum_domain_model_forum.forum">
+				<target>Forum</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.category" resname="tx_forum_domain_model_forum.category">
+				<target>Kategorie</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.headline-part" resname="tx_forum_domain_model_forum.headline-part">
+				<target>Du befindest dich in der Kategorie: </target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.headline-part2" resname="tx_forum_domain_model_forum.headline-part2">
+				<target>Dein gewähltes Forum: </target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.no-threads" resname="tx_forum_domain_model_forum.no-threads">
+				<target>In diesem Forum existieren leider noch keine Beiträge</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.date" resname="tx_forum_domain_model_forum.date">
+				<target>d.m.Y, H:i:s</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.date2" resname="tx_forum_domain_model_forum.date2">
+				<target>d.m.Y</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.backlink" resname="tx_forum_domain_model_forum.backlink">
+				<target><![CDATA[<i class="fa-solid fa-circle-left"></i> Zurück zur Forenübersicht]]></target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.no_threads" resname="tx_forum_domain_model_forum.no_threads">
+				<target><![CDATA[[ Keine Beiträge ]]]></target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.last_thread_user" resname="tx_forum_domain_model_forum.last_thread_user">
+				<target>Verfasst von</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.userprofil" resname="tx_forum_domain_model_forum.userprofil">
+				<target>Benutzerprofil</target>
+			</trans-unit> 
+                        <trans-unit id="tx_forum_domain_model_forum.username" resname="tx_forum_domain_model_forum.username">
+				<target>Benutzername</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.age" resname="tx_forum_domain_model_forum.age">
+				<target>Alter</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.years" resname="tx_forum_domain_model_forum.years">
+				<target>Jahre</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.register" resname="tx_forum_domain_model_forum.register">
+				<target>Registriert seit</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.lastlogin" resname="tx_forum_domain_model_forum.lastlogin">
+				<target>Letzter LogIn</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.company" resname="tx_forum_domain_model_forum.company">
+				<target>Firma/Unternehmen</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.rank" resname="tx_forum_domain_model_forum.rank">
+				<target>Rang</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.threadcount" resname="tx_forum_domain_model_forum.threadcount">
+				<target>Beiträge</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.email" resname="tx_forum_domain_model_forum.email">
+				<target>E-Mail Adresse</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.password" resname="tx_forum_domain_model_forum.password">
+				<target>Passwort</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.password2" resname="tx_forum_domain_model_forum.password2">
+				<target>Passwort wiederholen</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.userimage" resname="tx_forum_domain_model_forum.userimage">
+				<target>Profilbild hochladen</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.success-headline" resname="tx_forum_domain_model_forum.success-headline">
+				<target><![CDATA[Vielen Dank für deine Registrierung]]></target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.success-text" resname="tx_forum_domain_model_forum.success-text">
+				<target><![CDATA[Du kannst ab sofort unser Portal und auch das Forum in vollen Umfang nutzen.<br />Für Fragen stehen dir gerne unsere Moderatoren oder der Admin zur Verfügung.]]></target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.activated_headline" resname="tx_forum_domain_model_forum.activated_headline">
+				<target><![CDATA[Freischaltung deines Benutzerkontos]]></target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.activated_text" resname="tx_forum_domain_model_forum.activated_text">
+				<target><![CDATA[Du hast dein Benutzerkonto erfolgreich freigeschaltet und kannst ab sofort unser Portal in vollem Umfang benutzen.]]></target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.activated_textinfo" resname="tx_forum_domain_model_forum.activated_textinfo">
+				<target><![CDATA[Du wirst gleich zur Forenübersicht weitergeleitet.]]></target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.loginHeader" resname="tx_forum_domain_model_forum.loginHeader">
+				<target>Login Formular</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.login_submit" resname="tx_forum_domain_model_forum.login_submit">
+				<target>LogIn</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.loginErrorHeader" resname="tx_forum_domain_model_forum.loginErrorHeader">
+				<target>Folgender Fehler ist aufgetreten:</target>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.loginErrorText" resname="tx_forum_domain_model_forum.loginErrorText">
+				<target><![CDATA[Der Benutzername und das Passwort stimmen nicht überein.]]></target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.newThreadButton" resname="tx_forum_domain_model_forum.newThreadButton">
+				<target><![CDATA[Neuer Beitrag <i class="fa-solid fa-file-circle-plus"></i>]]></target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.forumLabel" resname="tx_forum_domain_model_forum.forumLabel">
+				<target>Forum</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.threadLabel" resname="tx_forum_domain_model_forum.threadLabel">
+				<target>Themen</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.topicLabel" resname="tx_forum_domain_model_forum.topicLabel">
+				<target>Beiträge</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.lastThread" resname="tx_forum_domain_model_forum.lastThread">
+				<target>Letzter Beitrag</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.logoutHeader" resname="tx_forum_domain_model_forum.logoutHeader">
+				<target>Mein Konto</target>
+			</trans-unit> 
+			<trans-unit id="tx_forum_domain_model_forum.activeForum" resname="tx_forum_domain_model_forum.activeForum">
+				<target>Forum</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff> 

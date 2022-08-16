@@ -1,0 +1,51 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+ 
+    <div class='tx-forum-forum'>  
+
+    <h2 class="tx_forum_threadList-headline">{f:translate(key: 'tx_forum_domain_model_forum.activeForum')}: {forum_data.0.forum}</h2>
+    
+    <div class="tx-forum-buttons">
+        <div class="tx-forum-backlink">
+            <f:link.page><f:format.raw><f:translate key="tx_forum_domain_model_forum.backlink" /></f:format.raw></f:link.page>
+        </div>
+        <div class="tx-forum-newThread">
+            <f:security.ifAuthenticated>
+                <f:link.action action="new" controller="Thread">
+                    <f:format.raw><f:translate key="tx_forum_domain_model_forum.newThreadButton" /></f:format.raw>
+                </f:link.action>
+            </f:security.ifAuthenticated>
+        </div>
+    </div>
+    
+    
+     <div class="tx-forum-threads">   
+    <f:for each="{threads}" as="thread" iteration="iterator">
+        <div class="tx-forum-thread">
+            <div class="tx-forum-thread-title">
+                <f:link.action action="show" controller="Thread" arguments="{forum : forum_data.0.uid, thread : thread.uid}">{thread.title}</f:link.action>
+            </div>
+            <div class="tx-forum-thread-user">User</div>
+            <div class="tx-forum-thread-datetime"><f:format.date format="{f:translate(key: 'tx_forum_domain_model_forum.date')}">{thread.crdate}</f:format.date></div>
+        </div>
+    </f:for>
+    </div>
+    
+    <f:format.raw>{paging}</f:format.raw>
+    
+    </div>
+    
+    
+    
+    <f:if condition='{counter}==0'>
+        <div class="tx-forum-no-threads">
+            <f:translate key="tx_forum_domain_model_forum.no-threads" />
+        </div>
+    </f:if>
+    
+
+    
+</f:section> 
+</html>

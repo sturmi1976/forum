@@ -1,0 +1,50 @@
+routes: {  }
+routeEnhancers:     
+  Forum:
+    type: Extbase
+    extension: Forum
+    plugin: Forum
+    routes:
+      - routePath: '/{forum_title}'
+        _controller: 'Thread::list'
+        _arguments:
+          forum_title: forum
+          
+      - routePath: '/{forum_title}/{thread_title}'
+        _controller: 'Thread::show'
+        _arguments:
+          forum_title: forum
+          thread_title: thread
+          
+      - routePath: '/userprofil/{username}'
+        _controller: 'User::show'
+        _arguments:
+          username: user_id  
+          
+       
+      
+
+    defaultController: 'Thread::list'  
+    defaults:
+      page: '0'
+    requirements:
+      news_title: '^[a-zA-Z0-9].*$'
+      #page: \d+
+      
+      
+      
+    aspects:
+      forum_title:
+        type: PersistedAliasMapper
+        tableName: tx_forum_domain_model_forum
+        routeFieldName: url_segment
+      thread_title:
+        type: PersistedAliasMapper
+        tableName: tx_forum_domain_model_threads
+        routeFieldName: url_segment
+      username:
+        type: PersistedAliasMapper
+        tableName: fe_users
+        routeFieldName: username_path
+        routeFieldPattern: '^(?P.+)-(?P\d+)'  
+        

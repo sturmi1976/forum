@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="EXT:forum/Resources/Private/Language/locallang_db.xlf" date="2022-07-14T10:08:41Z" product-name="forum">
+		<header/>
+		<body>
+			<trans-unit id="tx_forum_domain_model_category" resname="tx_forum_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_category.category" resname="tx_forum_domain_model_category.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum" resname="tx_forum_domain_model_forum">
+				<source>Forum</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.forum" resname="tx_forum_domain_model_forum.forum">
+				<source>Forum</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.category" resname="tx_forum_domain_model_forum.category">
+				<source>Category</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_forum.name" resname="tx_forum_forum.name">
+				<source>Forum</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_forum.description" resname="tx_forum_forum.description">
+				<source>Plugin für die Darstellung der Foren im Frontend.</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_threads" resname="tx_forum_domain_model_threads">
+				<source>Beitrag</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_topic" resname="tx_forum_domain_model_topic">
+				<source>Antworten zum Beitrag</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.thread_title" resname="tx_forum_domain_model_forum.thread_title">
+				<source>Titel</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.username" resname="tx_forum_domain_model_forum.username">
+				<source>Username</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
+
+

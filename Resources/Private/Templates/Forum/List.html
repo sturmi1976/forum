@@ -1,0 +1,86 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    
+    
+    
+    <h1><f:translate key="tx_forum_domain_model_forum.title" /></h1>
+    
+    <div class="tx-category-foren-all">
+        
+        <table border='0' width='100%' class="tx-forum-overview" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    
+                    <th colspan="2"><span>{f:translate(key: 'tx_forum_domain_model_forum.forumLabel')}</span></th>
+                    <th><span>{f:translate(key: 'tx_forum_domain_model_forum.threadLabel')}</span></th>
+                    <th><span>{f:translate(key: 'tx_forum_domain_model_forum.topicLabel')}</span></th>
+                    <th><span>{f:translate(key: 'tx_forum_domain_model_forum.lastThread')}</span></th> 
+                </tr>
+            </thead>
+            <tbody>
+                
+                
+            <f:for each="{foren}" as="forum">
+                <tr>
+                    <td colspan="5">
+                        <div class="tx-forum-category"><b>{forum.category}</b></div>
+                     </td>
+                </tr>
+                <f:for each="{forum.forum}" as="forumlist" iteration="iterator">
+                    <tr class="tx-forum-thread-line">
+                        <td class="valign-middle tx-forum-forum {f:if(condition: iterator.isEven, then: 'even')} {f:if(condition: iterator.isOdd, then: 'odd')}">
+                        <f:if condition="{forumlist.thread_counter.0.counts} < 7"> 
+                            <f:then>
+                                <f:image src="EXT:forum/Resources/Public/Images/Icons/forum.png" width="40" alt="Forum: {forumlist.forum}" title="Forum: {forumlist.forum}" />
+                            </f:then>
+                            <f:else if="{forumlist.thread_counter.0.counts} > 7">
+                                <f:image src="EXT:forum/Resources/Public/Images/Icons/hot-forum.png" width="40" alt="Gefragtes Forum: {forumlist.forum}" title="Gefragtes Forum: {forumlist.forum}" />
+                            </f:else>
+                        </f:if>
+                        </td>
+                        <td class="valign-middle tx-forum-forum {f:if(condition: iterator.isEven, then: 'even')} {f:if(condition: iterator.isOdd, then: 'odd')}">
+                            <span class="tx-forum-forum {f:if(condition: iterator.isEven, then: 'even')} {f:if(condition: iterator.isOdd, then: 'odd')}">
+                                <f:link.action action="list" controller="Thread" arguments="{forum: forumlist.uid}">{forumlist.forum}</f:link.action>
+                            </span>
+                            <f:format.raw>{forumlist.description}</f:format.raw>
+                        </td>
+                        <td class="valign-middle tx-forum-forum {f:if(condition: iterator.isEven, then: 'even')} {f:if(condition: iterator.isOdd, then: 'odd')}" align="center">{forumlist.thread_counter.0.counts}</td>
+                        <td class="valign-middle tx-forum-forum {f:if(condition: iterator.isEven, then: 'even')} {f:if(condition: iterator.isOdd, then: 'odd')}" align="center">{forumlist.topic_counter.0.counts}</td>
+                        <td class="valign-middle tx-forum-forum {f:if(condition: iterator.isEven, then: 'even')} {f:if(condition: iterator.isOdd, then: 'odd')}" align="center">
+                    <f:if condition="{forumlist.thread_counter.0.counts}==0">
+                        <f:then>
+                            <span class="tx-forum-no_threads">
+                                <f:translate key="tx_forum_domain_model_forum.no_threads" />
+                            </span>
+                        </f:then>
+                        <f:else>
+                            <div class="tx-forum-last_thread">
+                                <f:link.action action="show" controller="Thread" arguments="{category: forumlist.last_thread.0.category,forum : forumlist.last_thread.0.forum, thread : forumlist.last_thread.0.uid}">
+                                    {forumlist.last_thread.0.title -> f:format.crop(maxCharacters: 40, respectHtml: true)}
+                                </f:link.action>
+                            </div>
+                            <div class="tx-forum-last_thread-user_data">
+                                <span class="tx-forum-last_user_label"><f:translate key="tx_forum_domain_model_forum.last_thread_user" />: </span>
+                                <f:link.action action="show" controller="User" arguments="{user_id: forumlist.last_thread_user.0.uid}" class="userlink">
+                                    <f:format.case mode="capital">{forumlist.last_thread_user.0.username}</f:format.case>
+                                </f:link.action>
+                                <span class="tx-forum-last_user_date">
+                                    <f:format.date format="{f:translate(key: 'tx_forum_domain_model_forum.date')}">{forumlist.last_thread.0.tstamp}</f:format.date>
+                                </span>
+                            </div>
+                        </f:else>
+                     </f:if>
+                        </td>
+                    </tr>
+                </f:for>
+            </f:for>
+            </tbody>
+         
+         </table>
+    </div>
+    
+    
+</f:section>
+</html>

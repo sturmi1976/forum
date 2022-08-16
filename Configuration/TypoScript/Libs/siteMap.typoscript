@@ -1,0 +1,80 @@
+
+plugin.tx_seo {
+    config {
+        xmlSitemap {
+            sitemaps {
+                userprofil {
+                    provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                    config {
+                        table = fe_users
+                        sortField = username
+                        lastModifiedField = tstamp
+                        recursive = 1
+                        pid = 10
+                        url {
+                            pageId = 4  
+                            fieldToParameterMap {
+                                uid = tx_forum_forum[user_id]
+                            }
+                            additionalGetParameters {
+                                tx_forum_forum.controller = User
+                                tx_forum_forum.action = show
+                            }
+                            useCacheHash = 1
+                        }
+                    }
+                }
+
+                 threadlist {
+                    provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                    config {
+                        table = tx_forum_domain_model_forum
+                        sortField = forum
+                        lastModifiedField = tstamp
+                        recursive = 1
+                        pid = 6
+                        url {
+                            pageId = 4 
+                            fieldToParameterMap {
+                                uid = tx_forum_forum[forum]
+                            }
+                            additionalGetParameters {
+                                tx_forum_forum.controller = Thread
+                                tx_forum_forum.action = list
+                            }
+                            useCacheHash = 1
+                        }
+                    }
+                }
+
+
+                threadshow {
+                    provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                    config {
+                        table = tx_forum_domain_model_threads
+                        sortField = title
+                        lastModifiedField = tstamp
+                        recursive = 1
+                        pid = 6
+                        url {
+                            pageId = 4 
+                            fieldToParameterMap {
+                                forum = tx_forum_forum[forum]
+                                uid = tx_forum_forum[thread]
+                            }
+                            additionalGetParameters {
+                                #tx_forum_forum.forum = 1
+                                tx_forum_forum.controller = Thread
+                                tx_forum_forum.action = show
+                            }
+                            useCacheHash = 1
+                        }
+                    }
+                }
+               
+
+
+            } 
+        }
+    }
+}

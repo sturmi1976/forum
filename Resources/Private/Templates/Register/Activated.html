@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    
+<script language="JavaScript" type="text/javascript">
+function redirecting() {
+window.location="{link}";
+}
+setTimeout('redirecting()',6000);
+</script>
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-success" role="alert">
+                    <h1 class="alert-heading"><f:translate key="tx_forum_domain_model_forum.activated_headline" /></h1>
+                    <hr />
+                    <p>
+                       <f:translate key="tx_forum_domain_model_forum.activated_text" />
+                    </p>
+                    <p>
+                        <b><f:translate key="tx_forum_domain_model_forum.activated_textinfo" /></b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    
+</f:section>
+</html>

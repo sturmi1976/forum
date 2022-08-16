@@ -1,0 +1,63 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    
+    <f:if condition="{error}==1">
+        <div class="alert alert-danger" role="alert">
+            <h3 class="alert-heading">{f:translate(key: 'tx_forum_domain_model_forum.loginErrorHeader')}</h3>
+            <p>
+                {f:translate(key: 'tx_forum_domain_model_forum.loginErrorText')}
+            </p>
+        </div>
+    </f:if>
+  
+    <f:if condition="{userLogin}==0"> 
+        <f:then>
+            <div class="tx_forum_loginbox">
+                <f:form action="login" controller="Login" additionalParams="{no_cache: 1}">
+
+                    <input type="hidden" name="logintype" value="login" />
+                    
+                    <h4>{f:translate(key: 'tx_forum_domain_model_forum.loginHeader')}</h4>
+                    <div class="tx-forum-textfield-loginform form-floating mb-3">
+                        <f:form.textfield property="username" id="loginUsername" name="username" class="form-control form-control-lg" placeholder="{f:translate(key: 'tx_forum_domain_model_forum.username')}" additionalAttributes="{required:true}" />
+                        <label for="loginUsername">{f:translate(key: 'tx_forum_domain_model_forum.username')}</label>
+                    </div>
+
+                    <div class="tx-forum-textfield-loginform form-floating mb-3">
+                        <f:form.password property="password" id="loginPassword" name="password" class="form-control form-control-lg" placeholder="{f:translate(key: 'tx_forum_domain_model_forum.password')}" additionalAttributes="{required:true}" />
+                        <label for="loginPassword">{f:translate(key: 'tx_forum_domain_model_forum.password')}</label>
+                    </div>
+
+                    <div class="tx-forum-textfield-loginform form-floating">
+                        <f:form.submit class="btn btn-dark" property="submit" name="submit" value="{f:translate(key: 'tx_forum_domain_model_forum.login_submit')}" />
+                    </div>
+                </f:form>
+            </div>
+        </f:then>
+        <f:else>
+            <!-- LogOut Box -->
+            <div class="tx_forum_logoutbox">
+                <h4>{f:translate(key: 'tx_forum_domain_model_forum.logoutHeader')}</h4>
+                <div class="tx_forum_logoutbox-userinfos">
+                    <small>User: <b><f:format.case mode="capital">{username}</f:format.case></b></small>
+                    <small>Beiträge: <b>{count_threads}</b></small>
+                </div>
+                <ul>
+                    <li><i class="fa-solid fa-user"></i><f:link.action action="show" controller="User" arguments="{user_id: user_id}">Profil</f:link.action></li>
+                </ul>
+
+                <ul class="tx-forum-logout-last">
+                    <li><i class="fa-solid fa-right-from-bracket"></i><f:link.action action="logout" controller="Login" additionalParams="{logintype: 'logout'}">LogOut</f:link.action> </li>
+                </ul>
+    
+            </div>
+        </f:else> 
+    </f:if> 
+    
+    
+     
+    
+</f:section>
+</html>

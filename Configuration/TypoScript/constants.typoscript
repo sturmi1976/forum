@@ -1,0 +1,53 @@
+# customcategory=forum templates=Forum Templates
+# customcategory=forum allgemein=Forum allgemein
+# customcategory=Forum SEO=Forum SEO
+# customcategory=Pager=Forum Paging
+
+# customsubcategory=PID=Pid's und Uid's der Seiten und Datensätze
+
+
+plugin.tx_forum_forum {
+    view {
+        # cat=forum templates/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:forum/Resources/Private/Templates/
+        # cat=forum templates/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:forum/Resources/Private/Partials/
+        # cat=forum templates/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:forum/Resources/Private/Layouts/
+    }
+    persistence {
+        
+
+    }
+
+        # cat=forum allgemein/PID/a; type=int; label=Default storage PID
+        storagePid =
+        # cat=forum allgemein/PID/a; type=int; label=Default UID for forum location
+        forumPluginUid = 
+        # cat=forum allgemein/PID/a; type=int; label=Default PID for user location
+        userPluginPid = 
+
+        # cat=Forum SEO//a; type=string; label=Title Tag Prefix
+        titleTagPrefix = TYPO3 Forum
+
+        # cat=Pager//a; type=string; label=Max. Einträge in der Beitragsübersicht
+        maxItemsPerPageThreadList = 10 
+ 
+
+
+}
+
+module.tx_forum_backendforum {
+    view {
+        # cat=module.tx_forum_backendforum/file; type=string; label=Path to template root (BE)
+        templateRootPath = EXT:forum/Resources/Private/Backend/Templates/
+        # cat=module.tx_forum_backendforum/file; type=string; label=Path to template partials (BE)
+        partialRootPath = EXT:forum/Resources/Private/Backend/Partials/
+        # cat=module.tx_forum_backendforum/file; type=string; label=Path to template layouts (BE)
+        layoutRootPath = EXT:forum/Resources/Private/Backend/Layouts/
+    }
+    persistence {
+        # cat=module.tx_forum_backendforum//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

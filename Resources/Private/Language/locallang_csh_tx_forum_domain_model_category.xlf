@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="EXT:forum/Resources/Private/Language/locallang_csh_tx_forum_domain_model_category.xlf" date="2022-07-14T10:08:41Z" product-name="forum">
+		<header/>
+		<body>
+			<trans-unit id="category.description" resname="category.description">
+				<source>category</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

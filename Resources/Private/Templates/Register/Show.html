@@ -1,0 +1,69 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    
+    
+    {testing}
+    
+    <div class="container">
+    <div class="row">
+    <f:if condition="{error}">
+        <div class="alert alert-danger" role="alert">
+            <ul class="error_list">
+                <f:for each="{error}" as="error">
+                    <li>{error}</li>
+                </f:for>
+            </ul>
+        </div>
+    </f:if>
+    </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <f:form action="show" controller="Register" enctype="multipart/form-data" class="tx-forum-register">
+                
+                <div class="tx-forum-textfield form-floating mb-3">
+                    <f:form.textfield property="username" id="username" name="username" class="form-control form-control-lg" placeholder="{f:translate(key: 'tx_forum_domain_model_forum.username')}" additionalAttributes="{required:true}" /><br />
+                    <label for="username">{f:translate(key: 'tx_forum_domain_model_forum.username')}</label>
+                </div>
+                
+                <div class="tx-forum-textfield form-floating mb-3">
+                    <f:form.textfield type="email" property="email" id="email" name="email" class="form-control form-control-lg" placeholder="{f:translate(key: 'tx_forum_domain_model_forum.email')}" /><br />
+                    <label for="email">{f:translate(key: 'tx_forum_domain_model_forum.email')}</label>
+                </div>
+                
+                <div class="tx-forum-textfield form-floating mb-3">
+                    <f:form.password property="password" id="password" name="password" class="form-control form-control-lg" placeholder="{f:translate(key: 'tx_forum_domain_model_forum.password')}" /><br />
+                    <label for="password">{f:translate(key: 'tx_forum_domain_model_forum.password')}</label>
+                </div>
+                
+                <div class="tx-forum-textfield form-floating mb-3">
+                    <f:form.password property="password2" id="password2" name="password2" class="form-control form-control-lg" placeholder="{f:translate(key: 'tx_forum_domain_model_forum.password2')}" /><br />
+                    <label for="password2">{f:translate(key: 'tx_forum_domain_model_forum.password2')}</label>
+                </div>
+                
+                <div class="tx-forum-textfield mb-3">
+                    <label for="image" class="form-label">Profilbild</label>
+                    <f:form.upload name="file" class="form-control" id="image" />
+                </div>
+                
+                
+               
+                
+                <f:form.submit value="Registrieren" class="btn btn-dark" name="submit" />
+            </f:form> 
+        </div>
+    </div>
+    
+    
+    
+    
+       
+
+    
+    
+    
+</f:section>
+</html>

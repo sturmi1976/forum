@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:forum/Resources/Private/Language/locallang.xlf" date="2022-07-14T10:08:41Z" product-name="forum">
+		<header/>
+		<body>
+			<trans-unit id="tx_forum_domain_model_category" resname="tx_forum_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_category.category" resname="tx_forum_domain_model_category.category">
+				<source>Category - EN</source>
+                                <target state="translated">Ort</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum" resname="tx_forum_domain_model_forum">
+				<source>Forum</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.title" resname="tx_forum_domain_model_forum.title">
+				<source>The German-language forum for TYPO3 developers</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.forum" resname="tx_forum_domain_model_forum.forum">
+				<source>Forum</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.category" resname="tx_forum_domain_model_forum.category">
+				<source>Category</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.headline-part" resname="tx_forum_domain_model_forum.headline-part">
+				<source>Your chosen category: </source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.headline-part2" resname="tx_forum_domain_model_forum.headline-part2">
+				<source>Your chosen forum: </source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.no-threads" resname="tx_forum_domain_model_forum.no-threads">
+				<source>Unfortunately there are no posts in this forum yet</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.date" resname="tx_forum_domain_model_forum.date">
+				<source>%d. %B %Y - %H:%I</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.date2" resname="tx_forum_domain_model_forum.date2">
+				<source>%d. %B %Y</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.backlink" resname="tx_forum_domain_model_forum.backlink">
+				<source><![CDATA[<i class="fa-solid fa-circle-left"></i> Back to overview]]></source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.no_threads" resname="tx_forum_domain_model_forum.no_threads">
+				<source><![CDATA[[ No themes ]]]></source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.last_thread_user" resname="tx_forum_domain_model_forum.last_thread_user">
+				<source>Author</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.userprofil" resname="tx_forum_domain_model_forum.userprofil">
+				<source>Userprofil</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.username" resname="tx_forum_domain_model_forum.username">
+				<source>Username</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.age" resname="tx_forum_domain_model_forum.age">
+				<source>Age</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.years" resname="tx_forum_domain_model_forum.years">
+				<source>Years</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.register" resname="tx_forum_domain_model_forum.register">
+				<source>Registered</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.lastlogin" resname="tx_forum_domain_model_forum.lastlogin">
+				<source>Last login</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.company" resname="tx_forum_domain_model_forum.company">
+				<source>Company</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.rank" resname="tx_forum_domain_model_forum.rank">
+				<source>Rank</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.threadcount" resname="tx_forum_domain_model_forum.threadcount">
+				<source>Posts</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.email" resname="tx_forum_domain_model_forum.email">
+				<source>E-Mail address</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.password" resname="tx_forum_domain_model_forum.password">
+				<source>Password</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.password2" resname="tx_forum_domain_model_forum.password2">
+				<source>Repeat password</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.userimage" resname="tx_forum_domain_model_forum.userimage">
+				<source>User image</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.success-headline" resname="tx_forum_domain_model_forum.success-headline">
+				<source><![CDATA[Thank you for registering]]></source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.success-text" resname="tx_forum_domain_model_forum.success-text">
+				<source><![CDATA[You can now use our portal and the forum to their full extent.<br />If you have any questions, our moderators or the admin will be happy to help.]]></source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.activated_headline" resname="tx_forum_domain_model_forum.activated_headline">
+				<source><![CDATA[Successful activation of your account]]></source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.activated_text" resname="tx_forum_domain_model_forum.activated_text">
+				<source><![CDATA[You can now make full use of our forum.]]></source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.loginHeader" resname="tx_forum_domain_model_forum.loginHeader">
+				<source>Loginform</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.login_submit" resname="tx_forum_domain_model_forum.login_submit">
+				<source>Login</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.loginErrorHeader" resname="tx_forum_domain_model_forum.loginErrorHeader">
+				<source>Login error</source>
+			</trans-unit>
+                        <trans-unit id="tx_forum_domain_model_forum.loginErrorText" resname="tx_forum_domain_model_forum.loginErrorText">
+				<source><![CDATA[The username and password do not match.]]></source>
+			</trans-unit>
+            <trans-unit id="tx_forum_domain_model_forum.newThreadButton" resname="tx_forum_domain_model_forum.newThreadButton">
+				<source><![CDATA[New Thread <i class="fa-solid fa-file-circle-plus"></i>]]></source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.forumLabel" resname="tx_forum_domain_model_forum.forumLabel">
+				<source>Forum</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.threadLabel" resname="tx_forum_domain_model_forum.threadLabel">
+				<source>Subjects</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.topicLabel" resname="tx_forum_domain_model_forum.topicLabel">
+				<source>Posts</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.lastThread" resname="tx_forum_domain_model_forum.lastThread">
+				<source>Last post</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.logoutHeader" resname="tx_forum_domain_model_forum.logoutHeader">
+				<source>My account</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.activeForum" resname="tx_forum_domain_model_forum.activeForum">
+				<source>Forum</source>
+			</trans-unit>
+
+		</body>
+	</file> 
+</xliff> 

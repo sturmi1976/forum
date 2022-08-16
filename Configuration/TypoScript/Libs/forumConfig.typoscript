@@ -1,0 +1,4 @@
+page.includeCSS {
+    01_forumCSS = EXT:forum/Resources/Public/Css/forum.css
+    02_forumCSS = EXT:forum/Resources/Public/Css/forum_resp.css
+}

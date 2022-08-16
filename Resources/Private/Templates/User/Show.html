@@ -1,0 +1,107 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    
+    <f:if condition="{user.0.uid}==''">
+        <f:then>
+        Der User wurde nicht gefunden!
+        </f:then>
+        <f:else>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="tx-forum-userprofil-header">
+                    <h1><f:translate key="tx_forum_domain_model_forum.userprofil" />: <f:format.case mode="capital">{user.0.username}</f:format.case></h1>
+                </div>
+            </div>
+         </div>
+    </div>
+            
+            
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <!-- Profilbild -->
+                        <f:if condition="{bild} > 0">
+                            <f:then>
+                                <f:image image="{bild}" alt="{user.username}" treatIdAsReference="1" class="img-fluid" />
+                            </f:then>
+                            <f:else>
+                                <f:image src="EXT:forum/Resources/Public/Images/no-image.jpg" alt="no image" class="img-fluid" />
+                            </f:else>
+                        </f:if>
+                    </div>
+                    
+                    <div class="col-8">
+                        <div class="container-fluid">
+                            <f:for each='{user}' as='user'>
+                                <div class="row">
+                                    <div class="col-6"><f:translate key="tx_forum_domain_model_forum.username" /></div>
+                                    <div class="col-6">: <strong><f:format.case mode="capital">{user.username}</f:format.case></strong></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"><f:translate key="tx_forum_domain_model_forum.rank" /></div>
+                                    <div class="col-6">: <f:format.case mode="capital">{usergroup}</f:format.case></div>
+                                </div>
+                                <f:if condition="{user.company}">
+                                 <div class="row">
+                                    <div class="col-6"><f:translate key="tx_forum_domain_model_forum.company" /></div>
+                                    <div class="col-6">: {user.company} </div>
+                                </div>  
+                                </f:if>
+                                <f:if condition="{user.birth_day}">
+                                <div class="row">
+                                    <div class="col-6"><f:translate key="tx_forum_domain_model_forum.age" /></div>
+                                    <div class="col-6">: {years} <f:translate key="tx_forum_domain_model_forum.years" /></div>
+                                </div>
+                                </f:if>
+                                <div class="row">
+                                    <div class="col-6"><f:translate key="tx_forum_domain_model_forum.register" /></div>
+                                    <div class="col-6">: <f:format.date format="{f:translate(key: 'tx_forum_domain_model_forum.date2')}">{user.crdate}</f:format.date></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"><f:translate key="tx_forum_domain_model_forum.lastlogin" /></div>
+                                    <div class="col-6">: 
+                                        <f:if condition="{user.lastlogin}">
+                                            <f:then>
+                                                <f:format.date format="{f:translate(key: 'tx_forum_domain_model_forum.date')}">{user.lastlogin}</f:format.date>
+                                            </f:then>
+                                            <f:else>
+                                                -
+                                            </f:else>
+                                        </f:if>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"><f:translate key="tx_forum_domain_model_forum.threadcount" /></div>
+                                    <div class="col-6">: {threads_count.counts}</div>
+                                </div>
+                            </f:for>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+                
+                
+                
+                
+                
+                
+            
+            
+        </f:else>
+    </f:if>
+    
+    
+    
+    
+    
+</f:section>
+</html>

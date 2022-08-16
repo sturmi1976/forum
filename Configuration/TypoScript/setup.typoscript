@@ -1,0 +1,103 @@
+########################################################
+##### Config laden                                 #####
+########################################################
+@import 'EXT:forum/Configuration/TypoScript/Libs/forumConfig.typoscript'
+
+
+########################################################
+##### Sitemap laden                                 #####
+########################################################
+@import 'EXT:forum/Configuration/TypoScript/Libs/siteMap.typoscript'  
+
+
+########################################################
+##### Own title-tag provider class for forum       #####
+########################################################
+config.pageTitleProviders {
+   myRecord {
+      provider = AL\Forum\Seo\ForumTitleProvider
+      before = pages
+   }
+}
+
+
+ 
+
+plugin.tx_forum_login {
+#########################################################
+##### Settings for login plugin                     #####
+#########################################################
+    settings {
+        forumPluginUid = {$plugin.tx_forum_register.forumPluginUid} 
+    }
+}
+
+plugin.tx_forum_register {
+#########################################################
+##### Settings for register plugin                  #####
+#########################################################
+    settings {
+        emailRegisterSubject = Deine Registrierung im TYPO3 Forum
+        forumPluginUid = {$plugin.tx_forum_register.forumPluginUid} 
+    }
+}
+ 
+plugin.tx_forum_forum {
+#########################################################
+##### Settings for foren extension                  #####
+#########################################################
+    settings {
+      emailRegisterSubject = Deine Registrierung im TYPO3 Forum
+      
+      titleTagPrefix = {$plugin.tx_forum_forum.titleTagPrefix}
+      pager {
+        maxItemsPerPageThreadList = {$plugin.tx_forum_forum.maxItemsPerPageThreadList}
+    }
+}
+
+
+
+
+
+    view {
+        templateRootPaths.0 = EXT:forum/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_forum_forum.view.templateRootPath}
+        partialRootPaths.0 = EXT:forum/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_forum_forum.view.partialRootPath}
+        layoutRootPaths.0 = EXT:forum/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_forum_forum.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_forum_forum.persistence.storagePid}
+        #recursive = 1
+        #userPluginPid = {$plugin.tx_forum_forum.persistence.userPluginPid}
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+# these classes are only used in auto-generated templates
+plugin.tx_forum._CSS_DEFAULT_STYLE (
+   
+)
+
+# Module configuration
+module.tx_forum_web_forumbackendforum {
+    persistence {
+        storagePid = {$module.tx_forum_backendforum.persistence.storagePid}
+    }
+    view {
+        templateRootPaths.0 = EXT:forum/Resources/Private/Backend/Templates/
+        templateRootPaths.1 = {$module.tx_forum_backendforum.view.templateRootPath}
+        partialRootPaths.0 = EXT:forum/Resources/Private/Backend/Partials/
+        partialRootPaths.1 = {$module.tx_forum_backendforum.view.partialRootPath}
+        layoutRootPaths.0 = EXT:forum/Resources/Private/Backend/Layouts/
+        layoutRootPaths.1 = {$module.tx_forum_backendforum.view.layoutRootPath}
+    }
+}
