@@ -85,5 +85,13 @@ class ThreadRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $result = $query->execute(true); 
         return $result; 
     }
+
+
+    public function findUserByThreadId($thread_id) {
+        $query = $this->createQuery();
+        $query->statement('SELECT tx_forum_domain_model_threads.uid, fe_users.username, fe_users.usergroup FROM tx_forum_domain_model_threads INNER JOIN fe_users ON tx_forum_domain_model_threads.user_id=fe_users.uid WHERE tx_forum_domain_model_threads.uid='.$thread_id.'');
+        $result = $query->execute(true); 
+        return $result;
+    }
     
 }

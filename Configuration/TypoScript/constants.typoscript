@@ -26,6 +26,8 @@ plugin.tx_forum_forum {
         forumPluginUid = 
         # cat=forum allgemein/PID/a; type=int; label=Default PID for user location
         userPluginPid = 
+        # cat=forum allgemein/PID/a; type=int; label=Default PID for register form location
+        registerPageUid =
 
         # cat=Forum SEO//a; type=string; label=Title Tag Prefix
         titleTagPrefix = TYPO3 Forum

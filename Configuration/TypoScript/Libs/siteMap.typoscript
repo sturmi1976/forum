@@ -10,9 +10,9 @@ plugin.tx_seo {
                         sortField = username
                         lastModifiedField = tstamp
                         recursive = 1
-                        pid = 10
+                        pid = {$plugin.tx_forum_forum.userPluginPid}
                         url {
-                            pageId = 4  
+                            pageId = {$plugin.tx_forum_forum.forumPluginUid}
                             fieldToParameterMap {
                                 uid = tx_forum_forum[user_id]
                             }
@@ -32,9 +32,9 @@ plugin.tx_seo {
                         sortField = forum
                         lastModifiedField = tstamp
                         recursive = 1
-                        pid = 6
+                        pid = {$plugin.tx_forum_forum.storagePid}
                         url {
-                            pageId = 4 
+                            pageId = {$plugin.tx_forum_forum.forumPluginUid}
                             fieldToParameterMap {
                                 uid = tx_forum_forum[forum]
                             }
@@ -55,9 +55,9 @@ plugin.tx_seo {
                         sortField = title
                         lastModifiedField = tstamp
                         recursive = 1
-                        pid = 6
+                        pid = {$plugin.tx_forum_forum.storagePid}
                         url {
-                            pageId = 4 
+                            pageId = {$plugin.tx_forum_forum.forumPluginUid}
                             fieldToParameterMap {
                                 forum = tx_forum_forum[forum]
                                 uid = tx_forum_forum[thread]

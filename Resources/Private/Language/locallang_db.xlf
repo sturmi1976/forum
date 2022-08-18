@@ -36,6 +36,9 @@
                         <trans-unit id="tx_forum_domain_model_forum.username" resname="tx_forum_domain_model_forum.username">
 				<source>Username</source>
 			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.rankLabel" resname="tx_forum_domain_model_forum.rankLabel">
+				<source>Rank</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

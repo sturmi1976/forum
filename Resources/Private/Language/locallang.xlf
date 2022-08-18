@@ -130,6 +130,9 @@
 			<trans-unit id="tx_forum_domain_model_forum.activeForum" resname="tx_forum_domain_model_forum.activeForum">
 				<source>Forum</source>
 			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.created" resname="tx_forum_domain_model_forum.created">
+				<source>Posted</source>
+			</trans-unit>
 
 		</body>
 	</file> 

@@ -99,9 +99,11 @@ $GLOBALS['TSFE']->fe_user->removeSessionData();
         
         /* All get params to the forum showAction */
         $get = $this->request->getArguments();
+
+
         
         
-        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($GLOBALS);
+      // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings['userLocation']);
          
         if($get['submit']) {
             
@@ -183,7 +185,7 @@ $GLOBALS['TSFE']->fe_user->removeSessionData();
                 'usergroup' => 1,
                 'crdate' => time(),
                 'tstamp' => time(),
-                'pid' => 10,
+                'pid' => $this->settings['userLocation'],
                 'cruser_id' => 1,
                 'disable' => 1,
                 'username_path' => $username_path,
@@ -216,7 +218,7 @@ $GLOBALS['TSFE']->fe_user->removeSessionData();
             $uriBuilder = $objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder::class);
             $uri = $uriBuilder
               ->reset()
-              ->setTargetPageUid(11)
+              ->setTargetPageUid(intval($this->settings['registerPageUid']))
               ->setArguments(['tx_forum_register[user_id]'=>$user_id, 'tx_forum_register[hash]'=>$user_hash, 'tx_forum_register[controller]'=>'Register', 'tx_forum_register[action]'=>'activated'])
               ->build();
 
@@ -281,7 +283,7 @@ $GLOBALS['TSFE']->fe_user->removeSessionData();
             
         }
         
-        //\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($user);
+       
         
         return $this->htmlResponse();
         
@@ -330,7 +332,7 @@ $GLOBALS['TSFE']->fe_user->removeSessionData();
     
     $insert_array1 = array(
         'user_id' => $user_id,
-        'pid' => 10,
+        'pid' => $this->settings['userLocation'],
         'profilbild' => 1,
         'crdate' => time(),
         'tstamp' => time()
@@ -339,7 +341,7 @@ $GLOBALS['TSFE']->fe_user->removeSessionData();
     
     
     $in_array = array(
-        'pid' => 10,
+        'pid' => $this->settings['userLocation'],
         'tstamp' => time(),
         'crdate' => time(),
         'cruser_id' => 1,

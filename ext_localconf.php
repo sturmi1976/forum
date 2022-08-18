@@ -97,13 +97,3 @@ defined('TYPO3') || die();
 })();
 
 
-
-return [
-    'MAIL' => [
-        'templateRootPaths' => [
-            'EXT:core/Resources/Private/Templates/Email/',
-            'EXT:backend/Resources/Private/Templates/Email/',
-            'EXT:forum/Resources/Private/Templates/Email/',
-        ],
-    ],
-]; 

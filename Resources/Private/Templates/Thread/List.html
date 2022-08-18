@@ -2,6 +2,8 @@
 <f:layout name="Default" />
 
 <f:section name="content">
+
+    <f:debug>{_all}</f:debug>
  
     <div class='tx-forum-forum'>  
 
@@ -20,15 +22,79 @@
         </div>
     </div>
     
-    
+
+   
+   
+
      <div class="tx-forum-threads">   
-    <f:for each="{threads}" as="thread" iteration="iterator">
-        <div class="tx-forum-thread">
-            <div class="tx-forum-thread-title">
-                <f:link.action action="show" controller="Thread" arguments="{forum : forum_data.0.uid, thread : thread.uid}">{thread.title}</f:link.action>
+    <f:for each="{article}" as="thread" iteration="iterator">
+        
+        <div class="tx-forum-thread {f:if(condition: iterator.isEven, then: 'thread-even')} {f:if(condition: iterator.isOdd, then: 'thread-odd')}">
+            <div class="tx-forum-thread-head">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="tx-forum-thread-title">
+                                <f:link.action action="show" controller="Thread" arguments="{forum : forum_data.0.uid, thread : thread.uid}">{thread.title}</f:link.action>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="tx-forum-thread-date">
+                                {f:translate(key: 'tx_forum_domain_model_forum.created')}: 
+                                <f:format.date format="{f:translate(key: 'tx_forum_domain_model_forum.date')}">{thread.crdate}</f:format.date>
+                            </div>
+                        </div>
+                    </div>
             </div>
-            <div class="tx-forum-thread-user">User</div>
-            <div class="tx-forum-thread-datetime"><f:format.date format="{f:translate(key: 'tx_forum_domain_model_forum.date')}">{thread.crdate}</f:format.date></div>
+        </div>
+
+        <div class="tx-forum-thread-body">
+            
+            <div class="tx-forum-thread-userinformation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+
+                            <div class="tx-forum-thread-userImage">
+                                <!-- Profilbild -->
+                            <f:if condition="{thread.fileData}">
+                                <f:then>
+                                    <f:image image="{thread.fileData}" alt="{thread.userData.0.username}" treatIdAsReference="1" class="img-fluid" width="60" />
+                                </f:then>
+                                <f:else>
+                                    <f:image src="EXT:forum/Resources/Public/Images/no-image.jpg" alt="no image" class="img-fluid" width="60" />
+                                </f:else>
+                            </f:if>
+                    
+                            </div> 
+                        </div>
+                        <div class="col-md-10">
+                            <div class="tx-forum-thread-user text-end">
+                                <span class="tx-forum-threadlist-username">
+                                    <f:link.action action="show" controller="User" arguments="{user_id: thread.user_id}"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;<f:format.case mode="capital">{thread.userData.0.username}</f:format.case></f:link.action>
+                                </span>
+                                <span class="tx-forum-threadlist-usergroup">
+                                    {f:translate(key: 'tx_forum_domain_model_forum.rankLabel')}: {thread.userGroup.0.title}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tx-forum-thread-content">
+                            <f:format.crop maxCharacters="200" append="&nbsp;&nbsp;..."><f:format.stripTags>{thread.text}</f:format.stripTags></f:format.crop>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+
+
         </div>
     </f:for>
     </div>

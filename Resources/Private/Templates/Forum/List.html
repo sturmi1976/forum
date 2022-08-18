@@ -57,7 +57,7 @@
                         </f:then>
                         <f:else>
                             <div class="tx-forum-last_thread">
-                                <f:link.action action="show" controller="Thread" arguments="{category: forumlist.last_thread.0.category,forum : forumlist.last_thread.0.forum, thread : forumlist.last_thread.0.uid}">
+                                <f:link.action action="show" controller="Thread" arguments="{forum : forumlist.last_thread.0.forum, thread : forumlist.last_thread.0.uid}">
                                     {forumlist.last_thread.0.title -> f:format.crop(maxCharacters: 40, respectHtml: true)}
                                 </f:link.action>
                             </div>

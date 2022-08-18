@@ -132,6 +132,12 @@
 			<trans-unit id="tx_forum_domain_model_forum.activeForum" resname="tx_forum_domain_model_forum.activeForum">
 				<target>Forum</target>
 			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.created" resname="tx_forum_domain_model_forum.created">
+				<target>Verfasst am</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.rankLabel" resname="tx_forum_domain_model_forum.rankLabel">
+				<target>Rank</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff> 

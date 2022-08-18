@@ -75,6 +75,14 @@ class UserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $result = $query->execute(true);
         return $result;
     }
+
+
+    public function findUserGroupById($uid) {
+        $query = $this->createQuery();
+        $query->statement('SELECT * FROM fe_groups WHERE uid="'.$uid.'" LIMIT 1');
+        $result = $query->execute(true);
+        return $result;
+    }
     
     
     public function insertNewUser($insert) {

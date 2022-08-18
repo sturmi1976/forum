@@ -38,7 +38,9 @@ plugin.tx_forum_register {
 #########################################################
     settings {
         emailRegisterSubject = Deine Registrierung im TYPO3 Forum
-        forumPluginUid = {$plugin.tx_forum_register.forumPluginUid} 
+        forumPluginUid = {$plugin.tx_forum_forum.forumPluginUid} 
+        userLocation = {$plugin.tx_forum_forum.userPluginPid}
+        registerPageUid = {$plugin.tx_forum_forum.registerPageUid}
     }
 }
  

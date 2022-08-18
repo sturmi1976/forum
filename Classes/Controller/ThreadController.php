@@ -6,7 +6,9 @@ namespace AL\Forum\Controller;
 
 
 use AL\Forum\Seo\ForumTitleProvider;
+use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
@@ -48,6 +50,25 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @var \AL\Forum\Domain\Repository\ThreadRepository
      */
     protected $threadRepository = null;
+
+
+
+    /**
+     * userRepository
+     *
+     * @var \AL\Forum\Domain\Repository\UserRepository
+     */
+    protected $userRepository = null;
+
+
+
+    /**
+     * @param \AL\Forum\Domain\Repository\UserRepository $userRepository
+     */
+    public function injectUserRepository(\AL\Forum\Domain\Repository\UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
     
     
     /**
@@ -114,10 +135,42 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
         $titleProvider = GeneralUtility::makeInstance(ForumTitleProvider::class);
         $titleProvider->setTitle($forum_data[0]['forum'].' '.$this->settings['titleTagPrefix']); 
-        
-        $this->view->assign('username', $GLOBALS['TSFE']->fe_user->user['username']);
+
+
         $this->view->assign('forum_data', $forum_data); 
         $this->view->assign('threads', $threads); 
+
+        
+
+        $i=0;
+        foreach($threads as $post) {
+
+            /* User Data */
+            $user = $this->threadRepository->findUserByThreadId($post['uid']);
+
+            /* User Group */
+           // $userFullData = $this->userRepository->findUserByUid($user[0]['usergroup']);
+            $group = $this->userRepository->findUserGroupById($user[0]['usergroup']);
+            
+            /* Profilbild des Users holen */
+            $image_uid = $this->userRepository->findUserImage($post['user_id']);
+            if($image_uid) {
+            $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
+            $file = $resourceFactory->getFileObject($image_uid[0]['uid_local']);
+            }
+
+            $article[$i] = $post;
+            $article[$i]['userData'] = $user;
+            $article[$i]['userGroup'] = $group;
+            $article[$i]['fileData'] = $file;
+          $i++;
+        }
+
+        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($article);
+
+        $this->view->assign('article', $article);  
+
+
  
         /* Paging nur anzeigen, wenn mehr als 1 Seite vorhanden ist ... */
         if($SitesComplete > 1) {
@@ -144,9 +197,28 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $thread_data = $this->threadRepository->findThreadDataByUid($get['thread']);
         
         $titleProvider = GeneralUtility::makeInstance(ForumTitleProvider::class);
-        $titleProvider->setTitle($thread_data[0]['title'].' '.$this->settings['titleTagPrefix']); 
+        $titleProvider->setTitle(htmlspecialchars($thread_data[0]['title']).' '.$this->settings['titleTagPrefix']); 
+
+        $title = htmlspecialchars($thread_data[0]['title']);
+        $title = strip_tags($title);
+        $desc = htmlspecialchars($thread_data[0]['text']);
+        $desc = strip_tags($desc);
+        $description = \TYPO3\CMS\Core\Utility\GeneralUtility::fixed_lgd_cs($desc,'160');
+        $dateTime = date("Y-m-d", $thread_data[0]['crdate']);
+        $time = date("H:i:s", $thread_data[0]['crdate']);
+
+        // User Data
+        $user = $this->userRepository->findUserByUid($thread_data[0]['user_id']);
+
+        $GLOBALS['TSFE']->additionalHeaderData['tx_forum_forum_thread'] = '
+        <script type="application/ld+json">
+ 
+        </script>
+        ';
+
         
-        $this->view->assign('forumName', $thread_data); 
+        
+        $this->view->assign('thread_data', $thread_data); 
          
         return $this->htmlResponse();
     }
