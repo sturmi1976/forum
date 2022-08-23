@@ -138,6 +138,12 @@
 			<trans-unit id="tx_forum_domain_model_forum.rankLabel" resname="tx_forum_domain_model_forum.rankLabel">
 				<target>Rank</target>
 			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.klicksLabel" resname="tx_forum_domain_model_forum.klicksLabel">
+				<target>Aufrufe</target>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.answerLabel" resname="tx_forum_domain_model_forum.answerLabel">
+				<target>Antworten</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff> 

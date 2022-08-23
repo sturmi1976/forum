@@ -11,6 +11,9 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3\CMS\Core\Cache\CacheManager;
+use AL\Forum\Functions\Bbcode\bbcode;
+
 
 
 /**
@@ -61,6 +64,22 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     protected $userRepository = null;
 
 
+    /**
+     * topicRepository
+     *
+     * @var \AL\Forum\Domain\Repository\TopicRepository
+     */
+    protected $topicRepository = null;
+
+
+    /**
+     * @param \AL\Forum\Domain\Repository\TopicRepository $topicRepository
+     */
+    public function injectTopicRepository(\AL\Forum\Domain\Repository\TopicRepository $topicRepository)
+    {
+        $this->topicRepository = $topicRepository;
+    }
+
 
     /**
      * @param \AL\Forum\Domain\Repository\UserRepository $userRepository
@@ -97,6 +116,22 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $this->threadRepository = $threadRepository;
     }
 
+
+
+    public function initializeListAction()
+{
+    $cacheTags = [
+        'tx_forum_forum',
+        'tx_forum_forum_' . (int)$this->request->getArguments('forum')
+    ];
+    $tsfeController = $GLOBALS['TSFE'];
+    if ($tsfeController !== null) {
+        $tsfeController->addCacheTags($cacheTags);
+    }
+}
+
+
+
     /**
      * action list
      *
@@ -104,6 +139,9 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function listAction(): \Psr\Http\Message\ResponseInterface
     { 
+
+        $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
+        $cacheManager->flushCachesByTag('tx_forum_forum_' . $this->request->getArguments('forum'));
       
         /* All get params to the forum showAction */
         $get = $this->request->getArguments();
@@ -163,7 +201,9 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
             $article[$i]['userData'] = $user;
             $article[$i]['userGroup'] = $group;
             $article[$i]['fileData'] = $file;
+            $article[$i]['countTopics'] = $this->topicRepository->findCountTopicsByThread($post['uid']);
           $i++;
+          
         }
 
         // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($article);
@@ -188,13 +228,19 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @param \AL\Forum\Domain\Model\Thread $thread
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function showAction(\AL\Forum\Domain\Model\Threads $thread): \Psr\Http\Message\ResponseInterface
+    public function showAction()
     {
         
+        /*
+        $tce = GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+        $tce->start([], []);
+        $tce->clear_cacheCmd($GLOBALS['TSFE']->id);
+        */
+
         /* All get params to the forum showAction */
         $get = $this->request->getArguments();
         
-        $thread_data = $this->threadRepository->findThreadDataByUid($get['thread']);
+        $thread_data = $this->threadRepository->findThreadDataByUid($get['thread']); 
         
         $titleProvider = GeneralUtility::makeInstance(ForumTitleProvider::class);
         $titleProvider->setTitle(htmlspecialchars($thread_data[0]['title']).' '.$this->settings['titleTagPrefix']); 
@@ -210,15 +256,33 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         // User Data
         $user = $this->userRepository->findUserByUid($thread_data[0]['user_id']);
 
+        $bbcode = new bbcode;
+        $text = $bbcode::tohtml($thread_data[0]['text'],TRUE);
+
+        $array_for_thread = array();
+        $array_for_thread['title'] = $title;
+        $array_for_thread['text'] = $text;
+        $array_for_thread['user'] = $user;
+        $array_for_thread['date'] = $thread_data[0]['crdate'];
+        
+        
+        
+
+        
+        $this->klickAction($get['thread']); 
+
+
+        
+        /*
         $GLOBALS['TSFE']->additionalHeaderData['tx_forum_forum_thread'] = '
         <script type="application/ld+json">
  
         </script>
         ';
-
+        */
         
         
-        $this->view->assign('thread_data', $thread_data); 
+        $this->view->assign('thread_data', $array_for_thread); 
          
         return $this->htmlResponse();
     }
@@ -227,6 +291,11 @@ class ThreadController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     
     
     
+    public function klickAction($thread_id) {
+        // Anzahl Klicks um 1 erhöhen
+        $update_klicks = $this->threadRepository->updateKlicksByThread($thread_id);
+        return $update_klicks;
+    }
     
     
     

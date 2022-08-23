@@ -271,6 +271,11 @@ box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
     display:block;
  }
 
+ .tx-forum-thread .tx-forum-thread-body .tx-forum-thread-userinformation .tx-forum-threadlist-usergroup {
+    font-size:0.9rem;
+    margin-top:1em;
+ }
+
  .tx-forum-thread .tx-forum-thread-body .tx-forum-thread-content {
     margin-bottom: 1.0rem;
     font-size:0.8rem;

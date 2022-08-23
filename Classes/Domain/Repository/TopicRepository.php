@@ -48,5 +48,13 @@ class TopicRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $result = $query->execute(true); 
         return $result; 
     }
+
+
+    public function findCountTopicsByThread($thread_id) {
+        $query = $this->createQuery();
+        $query->statement('SELECT COUNT(uid) AS countTopics FROM tx_forum_domain_model_topic WHERE thread="'.$thread_id.'"');
+        $result = $query->execute(true); 
+        return $result; 
+    }
     
 }

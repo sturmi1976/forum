@@ -17,6 +17,7 @@ CREATE TABLE tx_forum_domain_model_threads (
         forum int(11) unsigned DEFAULT '0',
         url_segment varchar(255) DEFAULT '' NOT NULL, 
         user_id int(11) unsigned DEFAULT '0',
+        klicks int(11) unsigned DEFAULT '0',
 ); 
 
 CREATE TABLE tx_forum_domain_model_thread (
@@ -26,6 +27,7 @@ CREATE TABLE tx_forum_domain_model_thread (
         forum int(11) unsigned DEFAULT '0',
         url_segment varchar(255) DEFAULT '' NOT NULL, 
         user_id int(11) unsigned DEFAULT '0', 
+        klicks int(11) unsigned DEFAULT '0', 
 );
 
 CREATE TABLE tx_forum_domain_model_topic (
@@ -47,5 +49,9 @@ CREATE TABLE fe_users (
         birth_day varchar(255) NOT NULL DEFAULT '', 
         profilbild tinytext,
         user_hash_activated varchar(255) NOT NULL DEFAULT '',
+);
+
+CREATE TABLE fe_groups ( 
+        color varchar(255) NOT NULL DEFAULT '', 
 );
 

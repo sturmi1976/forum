@@ -9,6 +9,8 @@ namespace AL\Forum\Domain\Repository;
 use AL\Forum\Domain\Model\Thread;
 
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 
 /**
  * This file is part of the "Forum" Extension for TYPO3 CMS.
@@ -93,5 +95,21 @@ class ThreadRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $result = $query->execute(true); 
         return $result;
     }
+
+
+    public function updateKlicksByThread($thread_id) {
+        // Counter Klicks
+        $res = $this->findThreadDataByUid($thread_id);
+        $count_klicks = intval($res[0]['klicks']+1);
+
+        GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_forum_domain_model_threads')
+            ->update(
+                'tx_forum_domain_model_threads',
+                [ 'klicks' => $count_klicks ], // set
+                [ 'uid' => $thread_id ] // where 
+            );
+    }
+
+
     
 }

@@ -133,7 +133,12 @@
 			<trans-unit id="tx_forum_domain_model_forum.created" resname="tx_forum_domain_model_forum.created">
 				<source>Posted</source>
 			</trans-unit>
-
+			<trans-unit id="tx_forum_domain_model_forum.klicksLabel" resname="tx_forum_domain_model_forum.klicksLabel">
+				<source>Klicks</source>
+			</trans-unit>
+			<trans-unit id="tx_forum_domain_model_forum.answerLabel" resname="tx_forum_domain_model_forum.answerLabel">
+				<source>Answers</source>
+			</trans-unit>
 		</body>
 	</file> 
 </xliff> 
